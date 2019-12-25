@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>leetcode</title>
+    <url>/2019/12/25/leetcode/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>分类1</category>
+      </categories>
+      <tags>
+        <tag>标签1</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hello-github</title>
     <url>/2019/12/08/hello-github/</url>
     <content><![CDATA[]]></content>
