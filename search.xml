@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>cpp类的默认函数</title>
+    <url>/2019/12/29/cpp%E7%B1%BB%E7%9A%84%E9%BB%98%E8%AE%A4%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<p>我们定义一个空类，但是这个类的大小其实不是0，而是1，这是因为每一个类的实例在内存中都是唯一的，编译器一般都会为每个空类实例分配一个字节<br>来表示这个类的地址。<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ class Book &#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure><br>那么当我们实例化一个空类的时候，是不是真的什么都没有呢，当然不是，编译器会帮我们生成6个默认函数(常见只有4个，重点介绍)<br>1、默认构造函数<br>当我们实例化一个空类的时候，编译器会帮我们生成一个默认构造函数，构造函数的作用其实就是对类对象分配空间，对类成员变量进行初始化<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ class Book &#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="code"><pre><span class="line"> int main()</span></pre></td></tr><tr><td class="code"><pre><span class="line"> &#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">     Book book; // 其实会生成一个默认构造函数book();</span></pre></td></tr><tr><td class="code"><pre><span class="line"> &#125;</span></pre></td></tr></table></figure><br>C++一个类通常有6个默认成员函数，分别是：构造函数，析构函数，拷贝构造函数，赋值运算符重载函数，<br>取址操作符重载函数，const修饰的取址操作符重载。<br>一般来说前4个比较重要，我们重点介绍一下：<br>1、构造函数：<br>构造函数顾名思义就是为类对象分配空间，对类的成员变量进行初始化，类的缺省构造函数可以重载，<br>只要声明和定义了一种构造函数(不管有参还是无参)，编译器就不会再帮我们生成缺省构造函数了。<br>1、函数名与类名相同<br>2、无返回值<br>3、对象构造的时候调用<br>4、构造函数可以重载</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ class Book &#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">  public:</span></pre></td></tr><tr><td class="code"><pre><span class="line">      Book();</span></pre></td></tr><tr><td class="code"><pre><span class="line">      Book(char* name = <span class="string">"儿童图书"</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">  private:</span></pre></td></tr><tr><td class="code"><pre><span class="line">       char* name;</span></pre></td></tr><tr><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+<p>2、析构函数</p>
+]]></content>
+      <categories>
+        <category>C++基础</category>
+      </categories>
+      <tags>
+        <tag>C++基础知识归档</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++11 delete/default的使用</title>
+    <url>/2019/12/29/delete-default/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>C++基础</category>
+      </categories>
+      <tags>
+        <tag>C++基础知识归档</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>leetcode</title>
     <url>/2019/12/25/leetcode/</url>
     <content><![CDATA[]]></content>
