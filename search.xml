@@ -1068,14 +1068,14 @@ body .markdown-body
 <div class="codehilite"><pre><span class="nv">$ </span>class Book <span class="o">{</span>
 <span class="o">}</span>
 </pre></div>
-那么当我们实例化这个类的时候，编译器默认都会帮我添加什么东西呢？
+那么当我们实例化这个类的时候，是不是真的什么都没有呢，编译器会帮我们添加什么东西吗？
 1、默认构造函数
 当我们实例化一个空类的时候，编译器会默认帮我们生成一个构造函数，构造函数的作用其实就是对类对象分配空间，对类成员变量进行初始化
 <div class="codehilite"><pre><span class="nv">$ </span>class Book <span class="o">{</span>
 <span class="o">}</span>
  int main<span class="o">()</span>
  <span class="o">{</span>
-     Book book<span class="p">;</span> // 
+     Book book<span class="p">;</span> // 其实
  <span class="o">}</span>
 </pre></div>
 C++一个类通常有6个默认成员函数，分别是：构造函数，析构函数，拷贝构造函数，赋值运算符重载函数，
@@ -1097,11 +1097,6 @@ C++一个类通常有6个默认成员函数，分别是：构造函数，析构�
 <span class="o">}</span>
 </pre></div>
 2、析构函数</p></article></body></html>]]></content>
-  </entry>
-  <entry>
-    <title>C++默认类的函数</title>
-    <url>/2019/12/29/C-%E9%BB%98%E8%AE%A4%E7%B1%BB%E7%9A%84%E5%87%BD%E6%95%B0/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>leetcode</title>
