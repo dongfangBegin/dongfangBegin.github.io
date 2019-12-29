@@ -26,7 +26,7 @@
     version: '7.6.0',
     exturl: false,
     sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
-    copycode: {"enable":true,"show_result":true,"style":"mac"},
+    copycode: "",
     back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
@@ -47,15 +47,15 @@
   };
 </script>
 
-  <meta name="description" content="涉猎包括C++、操作系统等内容">
+  <meta name="description" content="1、default关键字：只能用于类的特殊成员函数中，关键字既可以在类内也可以在类外在文章，cpp类的4种默认函数中，我们说明了如果我们自己定义了析构函数，根据三法则，我们需要自己实现拷贝构造函数和赋值操作符重载函数。那么对于一个变量比较多的类我们自己实现一方面容易出错，另一方面执行效率也不高，这时候怎么办呢，我们可以使用default关键字。1class Book &amp;#123;2  public">
 <meta name="keywords" content="C++基础知识归档">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++11 delete&#x2F;default的使用">
+<meta property="og:title" content="delete&#x2F;default的使用">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;29&#x2F;delete-default&#x2F;index.html">
 <meta property="og:site_name" content="过河的小卒子">
-<meta property="og:description" content="涉猎包括C++、操作系统等内容">
+<meta property="og:description" content="1、default关键字：只能用于类的特殊成员函数中，关键字既可以在类内也可以在类外在文章，cpp类的4种默认函数中，我们说明了如果我们自己定义了析构函数，根据三法则，我们需要自己实现拷贝构造函数和赋值操作符重载函数。那么对于一个变量比较多的类我们自己实现一方面容易出错，另一方面执行效率也不高，这时候怎么办呢，我们可以使用default关键字。1class Book &amp;#123;2  public">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-29T13:17:59.002Z">
+<meta property="og:updated_time" content="2019-12-29T15:44:03.522Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2019/12/29/delete-default/">
@@ -70,7 +70,7 @@
   };
 </script>
 
-  <title>C++11 delete/default的使用 | 过河的小卒子</title>
+  <title>delete/default的使用 | 过河的小卒子</title>
   
 
 
@@ -222,7 +222,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          C++11 delete/default的使用
+          delete/default的使用
         </h1>
 
         <div class="post-meta">
@@ -233,7 +233,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2019-12-29 09:48:30 / 修改时间：21:17:59" itemprop="dateCreated datePublished" datetime="2019-12-29T09:48:30+08:00">2019-12-29</time>
+              <time title="创建时间：2019-12-29 09:48:30 / 修改时间：23:44:03" itemprop="dateCreated datePublished" datetime="2019-12-29T09:48:30+08:00">2019-12-29</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -258,7 +258,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <p>1、default关键字：只能用于类的特殊成员函数中，关键字既可以在类内也可以在类外<br>在文章，cpp类的4种默认函数中，我们说明了如果我们自己定义了析构函数，根据三法则，我们需要自己实现拷贝构造函数和赋值操作符重载函数。那么对于一个变量比较多的类我们自己实现一方面容易出错，另一方面执行效率也不高，这时候怎么办呢，我们可以使用default关键字。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">class Book &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  public:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">     Book() = default; // 该函数比用户自己定义的默认构造函数获得更高的代码效率，<span class="string">"=default"</span>函数特性仅适用于类的特殊成员函数，且该特殊成员函数没有默认参数。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">     Book(string name)&#123;&#125;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">     // Book(string name) = default; // 错误，并非类的特殊成员函数</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">     // Book(string name = <span class="string">"C++"</span>) // 错误，构造函数带有默认参数</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">     // fun1(); // 错误，default只能用于特殊成员函数</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">     ~<span class="function"><span class="title">Boook</span></span>()&#123;&#125;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">     Book(const Book&amp; book) = default;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">     Book&amp; operator = (const Book&amp; hrs) = default;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">public:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    string name;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    int index;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">&#125;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">int main()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">    Book book1(<span class="string">"linux"</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">    Book book2; // 调用了不带参数的构造函数，所以类中必须声明定义一个，否则会报错。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">return</span> 0;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure><br>2、delete关键字：为了能够让程序员显式的禁用某个函数，C++11 标准引入了一个新特性：”=delete”函数。程序员只需在函数声明后上“=delete;”，就可将该函数禁用。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">class Book &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  public:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">     Book();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">     Book(const Book&amp; book) = delete;  // 声明拷贝构造函数为 deleted 函数</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">     Book&amp; operator = (const Book&amp; hrs) = delete;  // 声明拷贝赋值操作符为 deleted 函数</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">public:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    string name;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    int index;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">&#125;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">int main()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    Book book2; // 类不必要创建析构函数，相应的拷贝构造和赋值操作符可以禁止</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">return</span> 0;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure></p>
+
     </div>
 
     
