@@ -47,15 +47,15 @@
   };
 </script>
 
-  <meta name="description" content="拷贝构造函数的参数为什么使用引用的格式呢，是为了防止在拷贝的时候出现死循环1class String &amp;#123;2    String()&amp;#123;&amp;#125;; &#x2F;&#x2F; 构造函数3    String(char* m_str)&amp;#123;&amp;#125;; &#x2F;&#x2F; 重载构造函数4    String(String rhs)&amp;#123;&amp;#125; &#x2F;&#x2F; 拷贝构造函数(没使用引用类型)5    Str">
+  <meta name="description" content="拷贝构造函数的参数为什么使用引用的格式呢，是为了防止在拷贝的时候出现死循环">
 <meta name="keywords" content="C++基础知识总结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="拷贝构造函数参数为什么使用引用格式">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;01&#x2F;cpp%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93&#x2F;%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B&#x2F;index.html">
 <meta property="og:site_name" content="过河的小卒子">
-<meta property="og:description" content="拷贝构造函数的参数为什么使用引用的格式呢，是为了防止在拷贝的时候出现死循环1class String &amp;#123;2    String()&amp;#123;&amp;#125;; &#x2F;&#x2F; 构造函数3    String(char* m_str)&amp;#123;&amp;#125;; &#x2F;&#x2F; 重载构造函数4    String(String rhs)&amp;#123;&amp;#125; &#x2F;&#x2F; 拷贝构造函数(没使用引用类型)5    Str">
+<meta property="og:description" content="拷贝构造函数的参数为什么使用引用的格式呢，是为了防止在拷贝的时候出现死循环">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-01T03:35:21.471Z">
+<meta property="og:updated_time" content="2020-01-01T13:53:33.442Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2020/01/01/cpp%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/%E6%8B%B7%E8%B4%9D%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/">
@@ -233,7 +233,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-01-01 11:08:38 / 修改时间：11:35:21" itemprop="dateCreated datePublished" datetime="2020-01-01T11:08:38+08:00">2020-01-01</time>
+              <time title="创建时间：2020-01-01 11:08:38 / 修改时间：21:53:33" itemprop="dateCreated datePublished" datetime="2020-01-01T11:08:38+08:00">2020-01-01</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -258,7 +258,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>拷贝构造函数的参数为什么使用引用的格式呢，是为了防止在拷贝的时候出现死循环<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">class String &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="title">String</span></span>()&#123;&#125;; // 构造函数</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    String(char* m_str)&#123;&#125;; // 重载构造函数</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    String(String rhs)&#123;&#125; // 拷贝构造函数(没使用引用类型)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    String&amp; operator=(const String&amp; str)&#123;&#125; // 赋值操作符</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">private:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    char* m_str;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">&#125;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">int main()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    String str(<span class="string">"123"</span>); // 调用重载的构造函数</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    String str1(str); // 调用拷贝构造函数</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure><br>在你使用str构造str1的时候，如果你是传值而不是传引用，在调用拷贝构造的时候你需要先复制一个str的复本，赋值给hrs，而复制这个复本rhs的时候你又需要复制rhs的复本rhs1，继续调用拷贝构造，<br>一直循环往复，所以会形成死循环。</p>
+        <p>拷贝构造函数的参数为什么使用引用的格式呢，是为了防止在拷贝的时候出现死循环<br><a id="more"></a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">class String &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="title">String</span></span>()&#123;&#125;; // 构造函数</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    String(char* m_str)&#123;&#125;; // 重载构造函数</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    String(String rhs)&#123;&#125; // 拷贝构造函数(没使用引用类型)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    String&amp; operator=(const String&amp; str)&#123;&#125; // 赋值操作符</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">private:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    char* m_str;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">&#125;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">int main()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    String str(<span class="string">"123"</span>); // 调用重载的构造函数</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    String str1(str); // 调用拷贝构造函数</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure><br>在你使用str构造str1的时候，如果你是传值而不是传引用，在调用拷贝构造的时候你需要先复制一个str的复本，赋值给hrs，而复制这个复本rhs的时候你又需要复制rhs的复本rhs1，继续调用拷贝构造，<br>一直循环往复，所以会形成死循环。</p>
 
     </div>
 
