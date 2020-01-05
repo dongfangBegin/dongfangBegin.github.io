@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-01-02T16:24:28.739Z</updated>
+  <updated>2020-01-05T08:42:55.945Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>169.最多元素</title>
+    <link href="http://yoursite.com/2020/01/05/LeetCode%E4%B8%93%E9%A2%98/169.%E6%9C%80%E5%A4%9A%E5%85%83%E7%B4%A0/"/>
+    <id>http://yoursite.com/2020/01/05/LeetCode%E4%B8%93%E9%A2%98/169.%E6%9C%80%E5%A4%9A%E5%85%83%E7%B4%A0/</id>
+    <published>2020-01-05T08:54:53.000Z</published>
+    <updated>2020-01-05T08:42:55.945Z</updated>
+    
+    <content type="html"><![CDATA[<p>给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。<br>你可以假设数组是非空的，并且给定的数组总是存在多数元素。<br>示例 1:<br>输入: [3,2,3]<br>输出: 3<br>示例 2:<br>输入: [2,2,1,1,1,2,2]<br>输出: 2<br><a id="more"></a><br>方法1：使用hash_map，对每个数据的个数进行存储，然后对比计算<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">public:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    int majorityElement(vector&lt;int&gt;&amp; nums) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">        int size = nums.size() / 2;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        unordered_map&lt;int, int&gt;myMap;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">for</span> (int i = 0; i&lt;nums.size(); i++) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">            myMap[nums[i]]++;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">        auto it = myMap.begin();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">for</span> (; it != myMap.end(); it++) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">if</span> ((*it).second &gt; size) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">                <span class="built_in">return</span> (*it).first;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">            &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">        <span class="built_in">return</span> 0;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">&#125;;</span></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。&lt;br&gt;你可以假设数组是非空的，并且给定的数组总是存在多数元素。&lt;br&gt;示例 1:&lt;br&gt;输入: [3,2,3]&lt;br&gt;输出: 3&lt;br&gt;示例 2:&lt;br&gt;输入: [2,2,1,1,1,2,2]&lt;br&gt;输出: 2&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="http://yoursite.com/categories/LeetCode/"/>
+    
+    
+      <category term="小题大做" scheme="http://yoursite.com/tags/%E5%B0%8F%E9%A2%98%E5%A4%A7%E5%81%9A/"/>
+    
+  </entry>
   
   <entry>
     <title>53.最大子序和</title>
