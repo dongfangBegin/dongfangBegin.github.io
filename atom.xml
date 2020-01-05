@@ -40,6 +40,29 @@
   </entry>
   
   <entry>
+    <title>顺序容器共同的性质</title>
+    <link href="http://yoursite.com/2020/01/05/STL/STL%E9%A1%BA%E5%BA%8F%E5%AE%B9%E5%99%A8/%E9%A1%BA%E5%BA%8F%E5%AE%B9%E5%99%A8%E5%85%B1%E6%80%A7/"/>
+    <id>http://yoursite.com/2020/01/05/STL/STL%E9%A1%BA%E5%BA%8F%E5%AE%B9%E5%99%A8/%E9%A1%BA%E5%BA%8F%E5%AE%B9%E5%99%A8%E5%85%B1%E6%80%A7/</id>
+    <published>2020-01-05T08:54:53.000Z</published>
+    <updated>2020-01-05T09:11:09.097Z</updated>
+    
+    <content type="html"><![CDATA[<p>STL中的顺序容器主要有一下几种：<br>vector:可变大小的数组，支持快速随机访问，在尾部之外的地方插入元素很慢<br>string：与vector类似，不过用来存放char，随机访问速度快，在尾部插入较快<br><a id="more"></a><br>deque：双端队列，支持随机访问，在头尾访问元素很快<br>list:双向链表，支持双向访问，在list的任何位置插入元素都很快<br>forward_list：单向链表，只支持单向访问，在list的任何位置访问都很快<br>array:数组，支持随机访问，不能添加和删除元素<br>注意：除非你有更好的理由使用其他容器，否则建议使用vector<br>顺序容器中的一些共同操作：<br>1.大小<br>c.size() // 容器中元素实际个数<br>c.max_size() // 容器可以存放最大元素个数<br>c.empty() // 容器是否为空<br>2.添加/删除元素<br>c.insert(args) // 插入元素args<br>c.erase(args) // 删除元素args<br>c.clear() // 对容器清空<br>3.交换<br>swap(a, b) // 交换元素a/b<br>4.获取迭代器<br>c.begin()/c.end() // 获取正向迭代器<br>c.rbegin()/c.rend() // 获取反向迭代器</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;STL中的顺序容器主要有一下几种：&lt;br&gt;vector:可变大小的数组，支持快速随机访问，在尾部之外的地方插入元素很慢&lt;br&gt;string：与vector类似，不过用来存放char，随机访问速度快，在尾部插入较快&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="STL" scheme="http://yoursite.com/categories/STL/"/>
+    
+    
+      <category term="STL-顺序容器" scheme="http://yoursite.com/tags/STL-%E9%A1%BA%E5%BA%8F%E5%AE%B9%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
     <title>53.最大子序和</title>
     <link href="http://yoursite.com/2020/01/02/LeetCode%E4%B8%93%E9%A2%98/53.%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C/"/>
     <id>http://yoursite.com/2020/01/02/LeetCode%E4%B8%93%E9%A2%98/53.%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C/</id>
